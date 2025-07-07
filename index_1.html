@@ -1,0 +1,129 @@
+ <!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+        <link href="https://fonts.cdnfonts.com/css/elastic" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/sofia-sans" rel="stylesheet">
+        <title>MarkDownPreviewer</title>
+    <script src="./js/marked4.js"></script>
+    <script>
+    window.onload= setDefault;
+  
+
+    function setDefault() {
+        let text = `# This is a headline
+        \n## This is a sub headline
+        \n*Headline*
+        \nThere's also [links](https://www.freecodecamp.org)
+        \nInline Code \`<div></div>\` fertig
+        \n \`\`\` 
+        \n// More Code in a block
+        \nfunction example (param1, param2) {return param1 + param2}
+        \n \`\`\`
+        \n- And of course there are lists.
+        \n- Point 2 indented
+        \n>Block Quotes!
+        \nHere's a picture: <br/> ![creativity](https://i.pinimg.com/736x/83/68/a0/8368a02df17416b969023fab43cdb39b.jpg)
+        \nAnd another one: <br/> ![creativity](https://i.pinimg.com/736x/a6/68/76/a66876e6a365da664daa6c8c4760d4b5.jpg)
+        \nAnd another one: <br/> ![creativity](https://i.pinimg.com/736x/1c/68/49/1c68492f3858528dab41707297b22e1d.jpg)
+        \nand something **bold**`;
+        document.getElementById("preview").innerHTML= marked(text);
+        document.getElementById("editor").value = text;
+    };
+
+    function updatePreview() {
+        document.getElementById("preview").innerHTML=marked(document.getElementById("editor").value);
+    }</script>
+    <style>
+    @import url('https://fonts.cdnfonts.com/css/elastic');
+    @import url('https://fonts.cdnfonts.com/css/sofia-sans');
+
+    blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1em;
+    color: #555;
+    font-style: italic;}
+
+    img {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;}
+
+    body {
+    background: linear-gradient(#f881d6, #ffcb53);
+    }
+
+    .full-height {
+      height: 100vh;
+    }
+
+    textarea, #preview {
+      min-height:90%;
+      width: 90%;
+      padding: 3rem;
+      
+      margin-left: 2rem;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      box-shadow: inset 0px 6px 20px rgba(0, 0, 0, 0.5);
+      /* border: 1px solid #ccc; */
+      padding: 0.75rem;
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+
+
+    #preview {
+      background-color: #f8f9fa;
+      padding-top: 2rem;
+    }
+
+    .title{
+      font-family: 'Grathering', sans-serif;
+      font-size: 6rem;
+      padding:0;
+      font-family: 'Elastic', sans-serif;
+      background-color: #ffd490;
+      color: #83a4e4;
+      
+    }
+
+    .header{
+      font-family: 'Sofia Sans', sans-serif;
+    }
+
+  </style>
+        </head>
+        <body>
+<div class="container-fluid">
+    <div class="row text-center" style="background-color:#f8f9fa; height: 30%">
+            <h1 class="title">Mark Up Editor</h1>
+    </div>
+        
+    <div class="row">
+        <div class="col-6 text-center">
+            <h2 class="header">EDITOR</h2>
+            <h3 class="header">Please write your Mark Up here</h3>
+            <textarea id="editor" placeholder="placeholder" onkeyup="updatePreview()" ></textarea>
+        </div>
+        <div class="col-6">
+            <h2 class="header text-center">PREVIEW</h2>
+            <h3 class="header text-center">Here you can see your Mark Down</h3>
+            <div id="preview" class="text-left"></div>
+            
+            <!-- <blockquote>Block Quotes!</blockquote> -->
+        </div>
+    </div>
+    </div>
+
+
+        </body>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>
